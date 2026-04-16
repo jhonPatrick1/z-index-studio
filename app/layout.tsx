@@ -3,6 +3,7 @@ import "./globals.css";
 
 // 1. METADATA API (SEO Tradicional y Open Graph)
 export const metadata: Metadata = {
+  metadataBase: new URL("https://z-index-studio.vercel.app"),
   title: "Z-Index Studio | Ingeniería de Software & Automatización",
   description: "Agencia de desarrollo Full-Stack especializada en plataformas SaaS, motores financieros algorítmicos y automatización de procesos empresariales.",
   keywords: ["Desarrollo Full-Stack", "Next.js", "Agencia de Software", "Automatización", "Lógica Financiera", "Z-Index Studio"],
@@ -15,12 +16,20 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        // URL ABSOLUTA: El secreto para que WhatsApp lo lea sí o sí
+        url: "https://z-index-studio.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Z-Index Studio - Software & Automation",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Z-Index Studio",
+    description: "Ingeniería de software de alto nivel.",
+    // URL ABSOLUTA también para Twitter
+    images: ["https://z-index-studio.vercel.app/og-image.png"],
   },
 };
 

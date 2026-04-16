@@ -1,18 +1,21 @@
 import Hero from '@/components/Hero';
 import ContactForm from '@/components/ContactForm'; 
-import Footer from '@/components/Footer'; 
+import Footer from '@/components/Footer';
+import Servicios from '@/components/Servicios'; 
+import FAQ from '@/components/FAQ'; 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-zcorp-base selection:bg-zprimary selection:text-zcorp font-sans">
       
-      {/* --- 1. HEADER SEMÁNTICO --- */}
-      <header className="w-full bg-zcorp-base z-50">
-        <nav className="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto" aria-label="Navegación Principal">
+      {/* --- 1. HEADER SEMÁNTICO FLOTANTE --- */}
+      <header className="fixed top-0 left-0 w-full bg-zcorp-base/80 backdrop-blur-md z-50 border-b border-slate-200">
+        <nav className="flex justify-between items-center py-4 px-8 max-w-7xl mx-auto" aria-label="Navegación Principal">
           <div className="text-2xl font-black text-zcorp tracking-tighter">
             Z-INDEX <span className="text-zprimary">STUDIO</span>
           </div>
           <ul className="hidden md:flex gap-8 font-medium text-zcorp-light">
+            <li><a href="#servicios" className="hover:text-zprimary transition-colors">Servicios</a></li>
             <li><a href="#proyectos" className="hover:text-zprimary transition-colors">Sistemas</a></li>
             <li><a href="#contacto" className="hover:text-zprimary transition-colors">Auditoría</a></li>
           </ul>
@@ -68,6 +71,10 @@ export default function Home() {
           </div>
         </section>
 
+        <FAQ />
+
+        <ContactForm />
+
         {/* --- CTA FINAL --- */}
         <section className="py-24 px-8 text-center bg-slate-950 text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">¿Listo para elevar tu <span className="text-zprimary text-transparent bg-clip-text bg-gradient-to-r from-zprimary to-teal-300">Z-Index</span>?</h2>
@@ -78,8 +85,6 @@ export default function Home() {
             INICIAR PROYECTO
           </a>
         </section>
-
-        <ContactForm /> {/* El formulario ahora tiene contexto al estar al final */}
       </main>
 
       {/* --- 3. FOOTER SEMÁNTICO --- */}
