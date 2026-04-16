@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Z-Index Studio - Software & Automation",
@@ -37,7 +37,7 @@ export default function RootLayout({
     name: 'Z-Index Studio',
     url: 'https://z-index-studio.vercel.app/',
     logo: 'https://z-index-studio.vercel.app/logo.png',
-    image: 'https://z-index-studio.vercel.app/og-image.jpg',
+    image: 'https://z-index-studio.vercel.app/og-image.png',
     description: 'Agencia de desarrollo Full-Stack. Construimos ingeniería de software, motores de amortización y automatización de sistemas corporativos.',
     address: {
       '@type': 'PostalAddress',
