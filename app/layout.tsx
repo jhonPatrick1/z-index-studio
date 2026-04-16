@@ -1,43 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// 1. METADATA API (SEO Tradicional y Open Graph)
 export const metadata: Metadata = {
-  // Lo que aparece en la pestaña del navegador
   title: "Z-Index Studio | Ingeniería de Software & Automatización",
-  description: "Construimos sistemas de alta jerarquía: plataformas SaaS, lógica financiera y automatización para posicionar tu negocio por encima de la competencia.",
-  
-  // Palabras clave para buscadores
-  keywords: ["Desarrollo de Software", "Next.js", "Automatización", "Sistemas Financieros", "Lima", "Z-Index Studio"],
-  
-  // Cómo se ve cuando compartes el link (Open Graph)
+  description: "Agencia de desarrollo Full-Stack especializada en plataformas SaaS, motores financieros algorítmicos y automatización de procesos empresariales.",
+  keywords: ["Desarrollo Full-Stack", "Next.js", "Agencia de Software", "Automatización", "Lógica Financiera", "Z-Index Studio"],
   openGraph: {
     title: "Z-Index Studio | Capa Superior en Tecnología",
     description: "Sistemas robustos que generan rentabilidad. Expertos en Next.js y Automatización.",
-    url: "https://zindexstudio.com", // Aquí pondrás tu dominio luego
+    url: "https://z-index-studio.vercel.app/",
     siteName: "Z-Index Studio",
     locale: "es_PE",
     type: "website",
-    images: [ // <--- AÑADE ESTO
+    images: [
       {
-        url: "/og-image.png", // Ruta a la imagen en la carpeta public
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Z-Index Studio - Ingeniería de Software de Alto Nivel",
+        alt: "Z-Index Studio - Software & Automation",
       },
     ],
-  },
-
-  // Configuración para Twitter/X
-  twitter: {
-    card: "summary_large_image",
-    title: "Z-Index Studio",
-    description: "Ingeniería de software de alto nivel.",
-    images: ["/og-image.png"], // <--- AÑADE ESTO TAMBIÉN
-  },
-
-  // El ícono de la pestaña
-  icons: {
-    icon: "/favicon.ico", // Asegúrate de tener un favicon en /public
   },
 };
 
@@ -46,9 +29,54 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  // 2. JSON-LD (Datos Estructurados Avanzados)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Z-Index Studio',
+    url: 'https://z-index-studio.vercel.app/',
+    logo: 'https://z-index-studio.vercel.app/logo.png',
+    image: 'https://z-index-studio.vercel.app/og-image.jpg',
+    description: 'Agencia de desarrollo Full-Stack. Construimos ingeniería de software, motores de amortización y automatización de sistemas corporativos.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'San Martín de Porres',
+      addressRegion: 'Lima',
+      addressCountry: 'PE'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Ingeniería de Software y Sistemas',
+      itemListElement: [
+        {
+          '@type': 'Service',
+          name: 'Desarrollo de Plataformas Full-Stack',
+          description: 'Arquitectura de software escalable utilizando Next.js y ecosistemas modernos.'
+        },
+        {
+          '@type': 'Service',
+          name: 'Implementación de Algoritmos Financieros',
+          description: 'Sistemas de cálculo y motores de amortización (método alemán) para control de capital.'
+        },
+        {
+          '@type': 'Service',
+          name: 'Automatización de Operaciones',
+          description: 'Desarrollo de bots y scripts para extracción de datos y eficiencia de procesos.'
+        }
+      ]
+    }
+  };
+
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className="antialiased selection:bg-zprimary selection:text-zcorp">
+    <html lang="es" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="antialiased">
         {children}
       </body>
     </html>
