@@ -55,7 +55,7 @@ export default function RoiCalculator() {
           <div className="w-full md:w-1/2 space-y-10">
             {/* Slider 1 */}
             <div>
-              <div className="flex justify-between items-center mb-4 relative">
+              <div className="flex justify-between items-end mb-4 gap-4">
                 <div className="flex items-center">
                   <label htmlFor="horas" className="font-bold text-neutral-300 uppercase text-xs tracking-widest">
                     Horas perdidas / semana
@@ -63,7 +63,8 @@ export default function RoiCalculator() {
                   {/* Detalle detallado del Slider 1 */}
                   <InfoTag text="Es el tiempo que tu equipo gasta en tareas 'aburridas' y repetitivas que no generan dinero, como llenar Excels, copiar datos de un lado a otro o revisar correos uno por uno." />
                 </div>
-                <span className="text-cyan-400 font-mono font-bold text-lg">{horas} hrs</span>
+                <span className="text-cyan-400 font-mono font-bold text-base md:text-lg whitespace-nowrap">
+                    {horas} hrs</span>
               </div>
               <input 
                 id="horas"
@@ -75,15 +76,15 @@ export default function RoiCalculator() {
 
             {/* Slider 2 */}
             <div>
-              <div className="flex justify-between items-center mb-4 relative">
+              <div className="flex justify-between items-end mb-4 gap-4">
                 <div className="flex items-center">
-                  <label htmlFor="costo" className="font-bold text-neutral-300 uppercase text-xs tracking-widest">
+                  <label htmlFor="costo" className="font-bold text-neutral-300 uppercase text-[10px] md:text-xs tracking-widest leading-tight">
                     Costo operativo hora (S/)
                   </label>
                   {/* Detalle detallado del Slider 2 */}
                   <InfoTag text="Lo que realmente te cuesta un trabajador por hora. No solo es su sueldo, sino también sus beneficios y el valor de su tiempo que podrías usar para vender más." />
                 </div>
-                <span className="text-cyan-400 font-mono font-bold text-lg">S/ {costo}</span>
+                <span className="text-cyan-400 font-mono font-bold text-base md:text-lg whitespace-nowrap">S/ {costo}</span>
               </div>
               <input 
                 id="costo"

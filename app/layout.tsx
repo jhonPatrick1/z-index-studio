@@ -29,9 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className="antialiased">
-        {/* 2. AGREGA EL CURSOR AQUÍ */}
-        <body className="antialiased cursor-none"></body>
+      {/* Agregamos overflow-x-hidden para matar el scroll horizontal en celulares */}
+      <body className="antialiased overflow-x-hidden relative w-full">
         <CustomCursor /> 
         {children}
       </body>

@@ -17,3 +17,13 @@ body {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); } /* -50% porque duplicamos el array */
 }
+@media (min-width: 768px) {
+  /* Oculta el cursor por defecto en toda la página */
+  html, body, *:not(a):not(button):not([type="submit"]):not([type="range"]) {
+    cursor: none !important;
+  }
+  /* Devuelve la "manito" solo a los elementos clickeables */
+  a, button, [type="submit"], [type="range"], .cursor-pointer {
+    cursor: pointer !important;
+  }
+}
