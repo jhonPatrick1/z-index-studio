@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // Componente pequeño y reutilizable para el ícono de información y el mensaje flotante (Tooltip)
 // Usamos 'group relative' para que el mensaje aparezca al hacer hover sobre el ícono
 const InfoTag = ({ text }: { text: string }) => (
-  <div className="group relative inline-block ml-2 cursor-help" aria-label="Más información">
+  <div className="group relative inline-block ml-2 cursor-help select-none" aria-label="Más información">
     {/* El Ícono (i) */}
     <span className="flex items-center justify-center w-4 h-4 text-[10px] font-bold border rounded-full text-neutral-600 border-neutral-700 group-hover:border-cyan-500 group-hover:text-cyan-400 transition-colors">
       i

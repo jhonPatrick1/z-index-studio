@@ -1,4 +1,5 @@
 import CustomCursor from '@/components/CustomCursor';
+import Header from '@/components/Header';
 import type { Metadata } from "next";
 import "./globals.css"; // Asegúrate de que esta línea esté para cargar Tailwind
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       {/* Agregamos overflow-x-hidden para matar el scroll horizontal en celulares */}
       <body className="antialiased overflow-x-hidden relative w-full">
         <CustomCursor /> 
+        <Header />
         {children}
       </body>
     </html>
