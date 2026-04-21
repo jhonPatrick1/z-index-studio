@@ -7,6 +7,7 @@ import FAQ from '@/components/FAQ';
 import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm'; 
 import Footer from '@/components/Footer'; 
+import RoiCalculator from '@/components/RoiCalculator';
 
 export default function Home() {
   return (
@@ -86,7 +87,7 @@ export default function Home() {
           <Methodology />
           <FAQ />
         </div>
-
+<RoiCalculator />
         {/* =========================================
             BLOQUE 3: EL CIERRE (OSCURO)
             ========================================= */}
