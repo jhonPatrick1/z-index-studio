@@ -61,7 +61,7 @@ export default function RoiCalculator() {
                     Horas perdidas / semana
                   </label>
                   {/* Detalle detallado del Slider 1 */}
-                  <InfoTag text="Incluye tiempo dedicado a: reportes manuales en Excel, data-entry repetitivo en CRMs, gestión manual de inventarios, envío masivo de correos individuales, conciliación bancaria manual, etc." />
+                  <InfoTag text="Es el tiempo que tu equipo gasta en tareas 'aburridas' y repetitivas que no generan dinero, como llenar Excels, copiar datos de un lado a otro o revisar correos uno por uno." />
                 </div>
                 <span className="text-cyan-400 font-mono font-bold text-lg">{horas} hrs</span>
               </div>
@@ -81,7 +81,7 @@ export default function RoiCalculator() {
                     Costo operativo hora (S/)
                   </label>
                   {/* Detalle detallado del Slider 2 */}
-                  <InfoTag text="Calcula el costo real sumando salario bruto, CTS, gratificaciones, EsSalud, AFP/ONP y costos fijos operativos proporcionales. Ejemplo: Salario de S/ 3500 suele representar un costo operativo real de ~S/ 35 por hora." />
+                  <InfoTag text="Lo que realmente te cuesta un trabajador por hora. No solo es su sueldo, sino también sus beneficios y el valor de su tiempo que podrías usar para vender más." />
                 </div>
                 <span className="text-cyan-400 font-mono font-bold text-lg">S/ {costo}</span>
               </div>
@@ -106,7 +106,7 @@ export default function RoiCalculator() {
                 </p>
               </div>
               {/* Detalle detallado de la fórmula */}
-              <InfoTag text={`Es el dinero que vuelve a tu bolsillo. Nosotros eliminamos el trabajo pesado para que tú y tu equipo se enfoquen solo en lo que realmente hace crecer el negocio.`} />
+              <InfoTag text={`Este es el dinero que 'se te escapa' cada mes pagando por tareas manuales. Es capital que estás invirtiendo en procesos lentos en lugar de usarlo para escalar tu empresa.`} />
             </div>
 
             {/* Ahorro Z-Index */}
@@ -114,7 +114,7 @@ export default function RoiCalculator() {
               <div className="flex items-center">
                 <p className="text-cyan-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Tu ahorro con Z-Index</p>
                 {/* Detalle detallado de por qué el 80% */}
-                <InfoTag text={`Asumimos una tasa de automatización conservadora del 80% basada en la eficiencia de bots RPA y arquitectura Next.js optimizada. Eliminamos el error humano y recuperamos S/ ${ahorroZIndex.toLocaleString('es-PE')} mensuales para tu empresa.`} />
+                <InfoTag text={`Asumimos una tasa de automatización conservadora del 80% basada en la eficiencia de bots RPA y arquitectura optimizada. Eliminamos el error humano y recuperamos S/ ${ahorroZIndex.toLocaleString('es-PE')} mensuales para tu empresa.`} />
               </div>
               <div className="text-5xl md:text-6xl font-black text-white tracking-tighter">
                 S/ {ahorroZIndex.toLocaleString('es-PE')}
