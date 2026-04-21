@@ -13,3 +13,7 @@ body {
   color: var(--color-zcorp);
   scroll-behavior: smooth;
 }
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* -50% porque duplicamos el array */
+}
