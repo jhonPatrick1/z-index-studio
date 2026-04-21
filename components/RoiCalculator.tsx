@@ -1,22 +1,41 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Componente pequeño y reutilizable para el ícono de información y el mensaje flotante (Tooltip)
-// Usamos 'group relative' para que el mensaje aparezca al hacer hover sobre el ícono
-const InfoTag = ({ text }: { text: string }) => (
-  <div className="group relative inline-block ml-2 select-none" aria-label="Más información">
-    <span className="flex items-center justify-center w-4 h-4 text-[10px] font-bold border rounded-full text-neutral-600 border-neutral-700 active:bg-cyan-900 md:group-hover:border-cyan-500 md:group-hover:text-cyan-400 transition-colors cursor-pointer md:cursor-help">
-      i
-    </span>
-    
-    {/* La Magia CSS: fixed bottom-10 en celular, absolute bottom-full en desktop */}
-    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-[90vw] md:absolute md:bottom-full md:mb-3 md:left-1/2 md:-translate-x-1/2 md:w-72 p-4 bg-neutral-800 text-neutral-300 text-xs md:text-sm rounded-xl border border-neutral-700 shadow-2xl opacity-0 md:translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-[120] pointer-events-none">
-      <div className="hidden md:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-800"></div>
-      <p className="leading-relaxed whitespace-normal text-center md:text-left">{text}</p>
+// InfoTag con React State para control en Móvil
+const InfoTag = ({ text }: { text: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Efecto para cerrar el tooltip al hacer scroll en móvil
+  useEffect(() => {
+    const handleScroll = () => setIsOpen(false);
+    if (isOpen) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
+
+  return (
+    // onMouseEnter/Leave para PC. onClick para Móvil.
+    <div 
+      className="relative inline-block ml-2 select-none" 
+      aria-label="Más información"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <span className="flex items-center justify-center w-4 h-4 text-[10px] font-bold border rounded-full text-neutral-600 border-neutral-700 active:bg-neutral-800 md:hover:border-cyan-500 md:hover:text-cyan-400 transition-colors cursor-pointer md:cursor-help">
+        i
+      </span>
+      
+      {/* Usamos el estado isOpen en lugar de group-hover */}
+      <div className={`fixed bottom-10 left-1/2 -translate-x-1/2 w-[90vw] md:absolute md:bottom-full md:mb-3 md:left-1/2 md:-translate-x-1/2 md:w-72 p-4 bg-neutral-800 text-neutral-300 text-xs md:text-sm rounded-xl border border-neutral-700 shadow-2xl transition-all duration-300 z-[120] pointer-events-none ${isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible'}`}>
+        <div className="hidden md:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-800"></div>
+        <p className="leading-relaxed whitespace-normal text-center md:text-left">{text}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function RoiCalculator() {
   const [horas, setHoras] = useState(40);
@@ -80,7 +99,7 @@ export default function RoiCalculator() {
                   {/* Detalle detallado del Slider 2 */}
                   <InfoTag text="Lo que realmente te cuesta un trabajador por hora. No solo es su sueldo, sino también sus beneficios y el valor de su tiempo que podrías usar para vender más." />
                 </div>
-                <span className="text-cyan-400 font-mono font-bold text-base md:text-lg whitespace-nowrap">S/ {costo}</span>
+                <span className="text-cyan-400 font-mono font-bold text-base md:text-lg whitespace-nowrap">S/{costo}</span>
               </div>
               <input 
                 id="costo"

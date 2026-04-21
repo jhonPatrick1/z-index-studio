@@ -28,12 +28,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // En app/layout.tsx
   return (
     <html lang="es" suppressHydrationWarning>
-      {/* Agregamos overflow-x-hidden para matar el scroll horizontal en celulares */}
-      <body className="antialiased overflow-x-hidden relative w-full">
-        <CustomCursor /> 
-        <Header />
+      {/* Agregamos select-none aquí para bloquear la selección en todo el sitio */}
+      <body className="antialiased overflow-x-hidden relative w-full cursor-none select-none">
+        <CustomCursor />
+        <Header /> 
         {children}
       </body>
     </html>
