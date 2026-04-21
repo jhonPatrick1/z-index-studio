@@ -5,19 +5,15 @@ import React, { useState } from 'react';
 // Componente pequeño y reutilizable para el ícono de información y el mensaje flotante (Tooltip)
 // Usamos 'group relative' para que el mensaje aparezca al hacer hover sobre el ícono
 const InfoTag = ({ text }: { text: string }) => (
-  <div className="group relative inline-block ml-2 cursor-help select-none" aria-label="Más información">
-    {/* El Ícono (i) */}
-    <span className="flex items-center justify-center w-4 h-4 text-[10px] font-bold border rounded-full text-neutral-600 border-neutral-700 group-hover:border-cyan-500 group-hover:text-cyan-400 transition-colors">
+  <div className="group relative inline-block ml-2 select-none" aria-label="Más información">
+    <span className="flex items-center justify-center w-4 h-4 text-[10px] font-bold border rounded-full text-neutral-600 border-neutral-700 active:bg-cyan-900 md:group-hover:border-cyan-500 md:group-hover:text-cyan-400 transition-colors cursor-pointer md:cursor-help">
       i
     </span>
     
-    {/* El Mensaje Flotante (Tooltip) */}
-    {/* absolute, invisible por defecto, aparece con group-hover. w-60 define el ancho del mensaje. */}
-    <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-72 p-4 bg-neutral-800 text-neutral-300 text-xs rounded-xl border border-neutral-700 shadow-2xl opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-50 pointer-events-none">
-      {/* Triangulito de abajo */}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-800"></div>
-      {/* Texto detallado */}
-      <p className="leading-relaxed">{text}</p>
+    {/* La Magia CSS: fixed bottom-10 en celular, absolute bottom-full en desktop */}
+    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-[90vw] md:absolute md:bottom-full md:mb-3 md:left-1/2 md:-translate-x-1/2 md:w-72 p-4 bg-neutral-800 text-neutral-300 text-xs md:text-sm rounded-xl border border-neutral-700 shadow-2xl opacity-0 md:translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-[120] pointer-events-none">
+      <div className="hidden md:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-800"></div>
+      <p className="leading-relaxed whitespace-normal text-center md:text-left">{text}</p>
     </div>
   </div>
 );
