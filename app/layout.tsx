@@ -1,3 +1,4 @@
+import CustomCursor from '@/components/CustomCursor';
 import type { Metadata } from "next";
 import "./globals.css"; // Asegúrate de que esta línea esté para cargar Tailwind
 
@@ -27,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Agregamos suppressHydrationWarning aquí
     <html lang="es" suppressHydrationWarning>
       <body className="antialiased">
+        {/* 2. AGREGA EL CURSOR AQUÍ */}
+        <body className="antialiased cursor-none"></body>
+        <CustomCursor /> 
         {children}
       </body>
     </html>

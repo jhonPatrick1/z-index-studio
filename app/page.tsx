@@ -8,6 +8,9 @@ import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm'; 
 import Footer from '@/components/Footer'; 
 import RoiCalculator from '@/components/RoiCalculator';
+import Comparison from '@/components/Comparison';
+import BlogSection from '@/components/BlogSection';
+import Testimonial from '@/components/Testimonial';
 
 export default function Home() {
   return (
@@ -56,18 +59,23 @@ export default function Home() {
               </header>
               
               <div className="grid md:grid-cols-2 gap-8">
-                {/* Tarjeta Markus */}
-                <article className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-cyan-500/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h3 className="text-2xl font-bold text-neutral-900 mb-3">Plataforma Markus</h3>
-                  <p className="text-neutral-600 mb-6 text-sm leading-relaxed">
-                    SaaS de gestión de reservas con administración multi-rol y control operativo en tiempo real. Interfaz fluida y centralizada.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-[10px] font-bold px-3 py-1 bg-cyan-50 border border-cyan-100 rounded-full text-cyan-600 tracking-wider">NEXT.JS</span>
-                    <span className="text-[10px] font-bold px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-slate-600 tracking-wider">SUPABASE</span>
-                  </div>
-                </article>
+                {/* Tarjeta Markus Refactorizada (B2B Focus) */}
+<article className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-cyan-500/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  
+  <div>
+    <h3 className="text-2xl font-bold text-neutral-900 mb-3">Plataforma Markus</h3>
+    {/* Nuevo Copywriting B2B */}
+    <p className="text-neutral-600 mb-6 text-sm leading-relaxed">
+      Automatizamos el control de agenda de Markus Barbería, reduciendo errores de reserva a cero y centralizando la administración multi-rol en tiempo real para escalar sus operaciones de manera eficiente.
+    </p>
+  </div>
+  
+  <div className="flex flex-wrap gap-2 mt-auto">
+    <span className="text-[10px] font-bold px-3 py-1 bg-cyan-50 border border-cyan-100 rounded-full text-cyan-600 tracking-wider">NEXT.JS</span>
+    <span className="text-[10px] font-bold px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-slate-600 tracking-wider">ESCALABILIDAD B2B</span>
+  </div>
+</article>
                 
                 {/* Tarjeta Finanzas */}
                 <article className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-cyan-500/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
@@ -87,7 +95,10 @@ export default function Home() {
           <Methodology />
           <FAQ />
         </div>
+        <Comparison />
 <RoiCalculator />
+<BlogSection />
+<Testimonial />
         {/* =========================================
             BLOQUE 3: EL CIERRE (OSCURO)
             ========================================= */}

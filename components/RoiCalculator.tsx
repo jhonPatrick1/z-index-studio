@@ -87,7 +87,7 @@ export default function RoiCalculator() {
               </div>
               <input 
                 id="costo"
-                type="range" min="10" max="100" value={costo} 
+                type="range" min="5" max="100" value={costo} 
                 onChange={(e) => setCosto(Number(e.target.value))}
                 className="w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
               />
